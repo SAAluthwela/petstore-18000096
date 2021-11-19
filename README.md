@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Backend implementation for the Pet - Store web application.
+This is Backend implementation for the Pet - Store web application.
 
 ## Packaging and running the application
 
@@ -43,9 +43,6 @@ To deploy the application using docker-compose, navigate to the [./deploy](https
 
     docker-compose up -d
    
-If you want to deploy the application directly, execute the following command:
-
-    docker run -p 8080:8080 -d nandula/petstore:1.0.0
     
 ## Executing the Test Suite
 
@@ -60,17 +57,13 @@ To run the test suite, execute the following command:
 
         curl -v http://localhost:8080/v1/pets
 
-- Get pet details by ID
-
-        curl -v http://localhost:8080/v1/pets/1
-
 - Add a new pet
 
         curl -d '{"petId":4,"petName":"Tommy", "petType":"Dog", "petAge":5}' -H 'Content-Type: application/json' http://localhost:8080/v1/pets
 
 - Update an existing pet
 
-        curl -d '{"petId":4,"petName":"Tommy", "petType":"Dog", "petAge":7}' -H 'Content-Type: application/json' -X PUT http://localhost:8080/v1/pets
+        curl -d '{"petId":4,"petName":"Tommy", "petType":"Dog", "petAge":7}' -H 'Content-Type: application/json' -X PUT http://localhost:8080/v1/pets/2
 
 - Delete a pet
 
@@ -78,35 +71,15 @@ To run the test suite, execute the following command:
 
 - Search pet by name
     
-        curl -v http://localhost:8080/v1/pets/query/byName?petName="Tommy"
+        curl -v http://localhost:8080/v1/pets/query/byName?Pet_Name="Tommy"
 
 - Search pet by type
 
-        curl -v http://localhost:8080/v1/pets/query/byType?petType="Dog"
+        curl -v http://localhost:8080/v1/pets/query/byType?Pet_Type="Dog"
 
 - Search pet by age
 
-        curl -v http://localhost:8080/v1/pets/query/byAge?petAge=3
+        curl -v http://localhost:8080/v1/pets/query/byAge?Pet_Age=3
 
-### Managing pet types
 
-- Get all pet types
-
-        curl -v http://localhost:8080/v1/petTypes
-
-- Get pet type by ID
-
-        curl -v http://localhost:8080/v1/petTypes/1
-
-- Add a new pet type
-
-        curl -d '{"petTypeId":4,"petType":"Rabbit"}' -H 'Content-Type: application/json' http://localhost:8080/v1/petTypes
-
-- Update an existing pet type
-
-        curl -d '{"petTypeId":4,"petType":"Hamster"}' -H 'Content-Type: application/json' -X PUT http://localhost:8080/v1/petTypes
-
-- Delete a pet type
-
-        curl -X DELETE http://localhost:8080/v1/petTypes/4
 
